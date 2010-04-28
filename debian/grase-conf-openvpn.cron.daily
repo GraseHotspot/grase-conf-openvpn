@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Check for signed certificate from server and install
+/usr/share/grase/scripts/retrieve_key_certificate
+

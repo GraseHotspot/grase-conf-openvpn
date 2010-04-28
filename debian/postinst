@@ -1,0 +1,25 @@
+#!/bin/sh -e
+
+action="$1"
+oldversion="$2"
+
+umask 022
+
+if [ "$action" != configure ]
+  then
+  exit 0
+fi
+
+
+build_key_request(){
+	/usr/share/grase/scripts/build_key_request
+}
+
+retrieve_key_cert(){
+	/usr/share/grase/scripts/retrieve_key_certificate
+}
+
+build_key_request
+retrieve_key_cert
+
+exit 0

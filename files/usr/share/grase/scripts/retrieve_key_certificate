@@ -1,0 +1,12 @@
+#!/bin/sh
+
+$KEYNAME = "$HOSTNAME.clients.hotspot.purewhite.id.au"
+
+# Periodically check for signed certificate
+# Recieve $KEYNAME.crt
+
+#link /etc/openvpn/client.* to /etc/grase/pki/keys/$KEYNAME.*
+
+wget -N -P /etc/grase/pki/keys/ http://hotspot.purewhite.id.au/crt/$KEYNAME.crt
+
+ln -fs /etc/grase/pki/keys/$KEYNAME.crt /etc/grase/pki/keys/grase_client.crt
