@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+set -e
+set -u
+
 UPFILE="$1"
 UPHOST="$2"
 UPURL="$3"

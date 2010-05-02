@@ -22,6 +22,13 @@ retrieve_key_cert(){
 build_key_request
 retrieve_key_cert
 
+if which invoke-rc.d >/dev/null 2>&1; then
+	invoke-rc.d openvpn restart grase
+else
+	/etc/init.d/openvpn restart grase
+fi
+
+
 exit 0
 
 #DEBHELPER#

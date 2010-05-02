@@ -1,19 +1,23 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
+set -u
 
 cd /usr/share/grase/easy-rsa/
 
-$KEYNAME = "$HOSTNAME.clients.hotspot.purewhite.id.au"
+
+KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
 
 . vars
-./build-req --batch $KEYNAME
+./build-req --batch "$KEYNAME"
 
-ln -fs /etc/grase/pki/keys/$KEYNAME.key /etc/grase/pki/keys/grase_client.key
+ln -fs "/etc/grase/pki/keys/$KEYNAME.key" /etc/grase/pki/keys/grase_client.key
 
 
 
 # Submit $KEYNAME.csr
 
-bash /usr/share/grase/scripts/upload_file.sh /etc/grase/pki/keys/$KEYNAME.csr hotspot.purewhite.id.au /csr_upload.php
+bash /usr/share/grase/scripts/upload_file.sh "/etc/grase/pki/keys/$KEYNAME.csr" hotspot.purewhite.id.au /csr_upload.php
 # TODO What if this fails?
 # Periodically check for signed certificate
 # Recieve $KEYNAME.crt
