@@ -8,17 +8,27 @@ cd /usr/share/grase/easy-rsa/
 
 KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
 
-. vars
-./build-req --batch "$KEYNAME"
+if [ ! -f "/etc/grase/pki/keys/$KEYNAME.key" ] && [ ! -f "/etc/grase/pki/keys/$KEYNAME.csr" ]; then
+	echo "Building new OpenVPN keys..."
+	. vars > /dev/null
+	./build-req --batch "$KEYNAME"
 
-ln -fs "/etc/grase/pki/keys/$KEYNAME.key" /etc/grase/pki/keys/grase_client.key
+	ln -fs "/etc/grase/pki/keys/$KEYNAME.key" /etc/grase/pki/keys/grase_client.key
 
+fi
 
 
 # Submit $KEYNAME.csr
 
-bash /usr/share/grase/scripts/upload_file.sh "/etc/grase/pki/keys/$KEYNAME.csr" hotspot.purewhite.id.au /csr_upload.php
-# TODO What if this fails?
+if [ -f "/etc/grase/pki/keys/$KEYNAME.csr" ] && [ ! -f "/etc/grase/pki/keys/$KEYNAME.crt" ]; then
+
+
+	echo "Submitting Certificate Signing Request to master server..."
+
+	bash /usr/share/grase/scripts/upload_file.sh "/etc/grase/pki/keys/$KEYNAME.csr" hotspot.purewhite.id.au /csr_upload.php
+fi
+
+# TODO What if this fails? Install crontab that checks if no crt has been recieved and then uploads the csr
 # Periodically check for signed certificate
 # Recieve $KEYNAME.crt
 

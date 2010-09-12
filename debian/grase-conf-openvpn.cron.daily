@@ -1,5 +1,12 @@
 #!/bin/bash
 
 # Check for signed certificate from server and install
-/usr/share/grase/scripts/retrieve_key_certificate
+if [ -x "/usr/share/grase/scripts/retrieve_key_certificate" ]; then
+	/usr/share/grase/scripts/retrieve_key_certificate
+fi
+
+# Check for existence of key and certificate signing request and generate and submit as needed
+if [ -x "/usr/share/grase/scripts/build_key_request" ]; then
+	/usr/share/grase/scripts/build_key_request
+fi
 

@@ -19,16 +19,30 @@ retrieve_key_cert(){
 	/usr/share/grase/scripts/retrieve_key_certificate
 }
 
+link_config_file(){
+	ln -bs /usr/share/grase/conf/openvpn/grase.conf /etc/openvpn/grase.conf
+}
+
+make_directories(){
+	mkdir -p /etc/grase/pki/keys
+}
+
+make_directories
+
+link_config_file
+
 build_key_request
-retrieve_key_cert
+retrieve_key_cert || true
 
-if which invoke-rc.d >/dev/null 2>&1; then
-	invoke-rc.d openvpn restart grase
-else
-	/etc/init.d/openvpn restart grase
-fi
+## Below is done in retrieve_key_cert
+#if which invoke-rc.d >/dev/null 2>&1; then
+#	invoke-rc.d openvpn restart grase || true
+#else
+#	/etc/init.d/openvpn restart grase || true
+#fi
 
+#DEBHELPER#
 
 exit 0
 
-#DEBHELPER#
+
