@@ -8,7 +8,7 @@ Homepage: http://hotspot.purewhite.id.au/
 
 Package: grase-conf-openvpn
 Architecture: all
-Depends: openvpn, wget, cdbs, ${misc:Depends}
+Depends: openvpn, wget, netcat-openbsd, ${misc:Depends}
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: Config files for OpenVPN for the GRASE Hotspot System
