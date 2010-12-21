@@ -1,3 +1,15 @@
+grase-conf-openvpn (1.3) purewhite; urgency=low
+
+  * Enable persist-tun to attempt to keep vpn running better
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 22 Dec 2010 09:52:46 +1000
+
+grase-conf-openvpn (1.2) purewhite; urgency=low
+
+  * Hourly cron to restart OpenVPN gracefully
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 08 Dec 2010 15:42:15 +1000
+
 grase-conf-openvpn (1.1) purewhite; urgency=low
 
   * Bump with proper distribution for repo
