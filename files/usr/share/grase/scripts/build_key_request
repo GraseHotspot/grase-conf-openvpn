@@ -8,6 +8,8 @@ cd /usr/share/grase/easy-rsa/
 
 KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
 
+mkdir -p /etc/grase/pki/keys/
+
 if [ ! -f "/etc/grase/pki/keys/$KEYNAME.key" ] && [ ! -f "/etc/grase/pki/keys/$KEYNAME.csr" ]; then
 	echo "Building new OpenVPN keys..."
 	. vars > /dev/null

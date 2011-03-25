@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Check for signed certificate from server and install
+if [ -x "/usr/share/grase/scripts/retrieve_key_certificate" ]; then
+
+    KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
+    if [ -f "/etc/grase/pki/keys/$KEYNAME.csr" ] && [ ! -f "/etc/grase/pki/keys/$KEYNAME.crt" ]; then
+        /usr/share/grase/scripts/retrieve_key_certificate
+    fi
+fi
+
+# Check Status and restart if stopped
+
 if which invoke-rc.d >/dev/null 2>&1; then
 	invoke-rc.d openvpn status grase 2>&1 > /dev/null
 	ret=$?
