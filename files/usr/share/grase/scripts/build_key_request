@@ -5,10 +5,16 @@ set -u
 
 cd /usr/share/grase/easy-rsa/
 
+MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
 
-KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
+OLDKEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
+KEYNAME="$HOSTNAME$MAC.clients.hotspot.purewhite.id.au"
 
 mkdir -p /etc/grase/pki/keys/
+
+if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
+    KEYNAME=$OLDKEYNAME
+fi
 
 if [ ! -f "/etc/grase/pki/keys/$KEYNAME.key" ] && [ ! -f "/etc/grase/pki/keys/$KEYNAME.csr" ]; then
 	echo "Building new OpenVPN keys..."

@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.5) purewhite; urgency=low
+
+  * Added MAC address to hostname to reduce hostname conflicts
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 30 Mar 2011 07:48:42 +1000
+
 grase-conf-openvpn (1.4) purewhite; urgency=low
 
   * Check for key certificates hourly

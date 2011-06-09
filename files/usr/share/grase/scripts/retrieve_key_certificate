@@ -3,7 +3,14 @@
 set -u
 set -e
 
-KEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
+MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
+
+OLDKEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
+KEYNAME="$HOSTNAME$MAC.clients.hotspot.purewhite.id.au"
+
+if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
+    KEYNAME=$OLDKEYNAME
+fi
 
 # Periodically check for signed certificate
 # Recieve $KEYNAME.crt
