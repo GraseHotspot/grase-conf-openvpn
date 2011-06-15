@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.5.1) natty; urgency=low
+
+  * MAC address on hostname broke hourly key checks. Fixed
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 15 Jun 2011 12:07:16 +1000
+
 grase-conf-openvpn (1.5) purewhite; urgency=low
 
   * Added MAC address to hostname to reduce hostname conflicts
