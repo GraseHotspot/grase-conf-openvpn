@@ -1,8 +1,14 @@
-grase-conf-openvpn (1.5.1) natty; urgency=low
+grase-conf-openvpn (1.5.2) purewhite; urgency=low
+
+  * Migration to grasehotspot.org/net
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Mon, 08 Aug 2011 10:10:18 +1000
+
+grase-conf-openvpn (1.5.1) purewhite; urgency=low
 
   * MAC address on hostname broke hourly key checks. Fixed
 
- -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 15 Jun 2011 12:07:16 +1000
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 15 Jun 2011 12:10:49 +1000
 
 grase-conf-openvpn (1.5) purewhite; urgency=low
 

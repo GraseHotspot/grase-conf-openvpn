@@ -5,8 +5,9 @@ set -e
 
 MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
 
-OLDKEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
-KEYNAME="$HOSTNAME$MAC.clients.hotspot.purewhite.id.au"
+OLDKEYNAME="$HOSTNAME.2011.vpn.grasehotspot.net"
+KEYNAME="$HOSTNAME$MAC.2011.vpn.grasehotspot.net"
+
 
 if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
     KEYNAME=$OLDKEYNAME
@@ -19,7 +20,7 @@ fi
 
 mkdir -p /etc/grase/pki/keys/
 
-wget -q -N -P /etc/grase/pki/keys/ "http://hotspot.purewhite.id.au/crt/$KEYNAME.crt" && ln -fs "/etc/grase/pki/keys/$KEYNAME.crt" /etc/grase/pki/keys/grase_client.crt 
+wget -q -N -P /etc/grase/pki/keys/ "http://grasehotspot.org/crt/$KEYNAME.crt" && ln -fs "/etc/grase/pki/keys/$KEYNAME.crt" /etc/grase/pki/keys/grase_client.crt 
 
 if which invoke-rc.d >/dev/null 2>&1; then
 	invoke-rc.d openvpn restart grase

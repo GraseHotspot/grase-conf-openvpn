@@ -3,10 +3,12 @@
 # Check for signed certificate from server and install
 if [ -x "/usr/share/grase/scripts/retrieve_key_certificate" ]; then
 
+    # This could all be in retrieve_key_certificate. Only reason to keep it here is to prevent a crt fetch hourly when the cert exists, instead only do the cert fetch daily
+
     MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
 
-    OLDKEYNAME="$HOSTNAME.clients.hotspot.purewhite.id.au"
-    KEYNAME="$HOSTNAME$MAC.clients.hotspot.purewhite.id.au"
+    OLDKEYNAME="$HOSTNAME.2011.vpn.grasehotspot.net"
+    KEYNAME="$HOSTNAME$MAC.2011.vpn.grasehotspot.net"
 
     if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
         KEYNAME=$OLDKEYNAME
