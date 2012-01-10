@@ -5,13 +5,13 @@ set -e
 
 MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
 
-OLDKEYNAME="$HOSTNAME.2011.vpn.grasehotspot.net"
-KEYNAME="$HOSTNAME$MAC.2011.vpn.grasehotspot.net"
+#OLDKEYNAME="$HOSTNAME.2011.vpn.grasehotspot.net"
+KEYNAME="$HOSTNAME.$MAC.2012.vpn.grasehotspot.net"
 
 
-if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
-    KEYNAME=$OLDKEYNAME
-fi
+#if [ -f "/etc/grase/pki/keys/$OLDKEYNAME.crt" ]; then
+#    KEYNAME=$OLDKEYNAME
+#fi
 
 # Periodically check for signed certificate
 # Recieve $KEYNAME.crt

@@ -1,3 +1,10 @@
+grase-conf-openvpn (1.5.3) purewhite; urgency=low
+
+  * Remove OLDKEYNAME as there should no longer be old keys
+  * Update for 2012 to prune of installs that don't upgrade
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Wed, 11 Jan 2012 05:46:55 +1000
+
 grase-conf-openvpn (1.5.2) purewhite; urgency=low
 
   * Migration to grasehotspot.org/net
