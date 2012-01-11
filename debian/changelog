@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.5.4) purewhite; urgency=low
+
+  * Missed a file in the 2012 update
+
+ -- Tim <tim@members.plug.org.au>  Wed, 11 Jan 2012 10:09:16 +1000
+
 grase-conf-openvpn (1.5.3) purewhite; urgency=low
 
   * Remove OLDKEYNAME as there should no longer be old keys
