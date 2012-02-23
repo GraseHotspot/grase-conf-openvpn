@@ -1,3 +1,10 @@
+grase-conf-openvpn (1.5.5) purewhite; urgency=low
+
+  * Decrease logging level
+  * mssfix for trying to work around faulty MTU connections
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Thu, 23 Feb 2012 11:20:05 +1000
+
 grase-conf-openvpn (1.5.4) purewhite; urgency=low
 
   * Missed a file in the 2012 update
