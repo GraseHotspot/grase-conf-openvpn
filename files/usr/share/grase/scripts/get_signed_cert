@@ -41,7 +41,6 @@ while getopts "fd" optname
 MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
 KEYNAME="$HOSTNAME.$MAC.2012.vpn.grasehotspot.net"
 KEYSTORE="/etc/grase/pki/keys/"
-KEYSTORE="/tmp/"
 
 mkdir -p $KEYSTORE
 

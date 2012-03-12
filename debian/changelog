@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.6.2) purewhite; urgency=low
+
+  * Ooops. Left wrong keystore dir in there
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Mon, 12 Mar 2012 16:21:54 +1000
+
 grase-conf-openvpn (1.6.1) purewhite; urgency=low
 
   * Force certificate resign on postinst
