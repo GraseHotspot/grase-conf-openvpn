@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.6) purewhite; urgency=low
+
+  * New key management system, simplier on client side as well
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Mon, 12 Mar 2012 14:51:24 +1000
+
 grase-conf-openvpn (1.5.5) purewhite; urgency=low
 
   * Decrease logging level
