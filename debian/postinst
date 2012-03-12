@@ -11,7 +11,7 @@ if [ "$action" != configure ]
 fi
 
 get_signed_cert(){
-	/usr/share/grase/scripts/get_signed_cert
+	/usr/share/grase/scripts/get_signed_cert -f
 }
 
 

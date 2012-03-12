@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.6.1) purewhite; urgency=low
+
+  * Force certificate resign on postinst
+
+ -- Tim White <tim@hotspot.purewhite.id.au>  Mon, 12 Mar 2012 16:19:09 +1000
+
 grase-conf-openvpn (1.6) purewhite; urgency=low
 
   * New key management system, simplier on client side as well
