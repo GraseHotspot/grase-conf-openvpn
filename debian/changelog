@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.7) purewhite; urgency=low
+
+  * Check every 10 minutes if time is in the past, try and set it to a sensible time
+
+ -- Tim White <tim@grasehotspot.org>  Wed, 16 May 2012 17:42:01 +1000
+
 grase-conf-openvpn (1.6.2) purewhite; urgency=low
 
   * Ooops. Left wrong keystore dir in there
