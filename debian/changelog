@@ -1,3 +1,9 @@
+grase-conf-openvpn (1.7.1) purewhite; urgency=low
+
+  * Have clock check script show what the date was and what it gets set to
+
+ -- Tim White <tim@grasehotspot.org>  Wed, 23 May 2012 07:29:51 +1000
+
 grase-conf-openvpn (1.7) purewhite; urgency=low
 
   * Check every 10 minutes if time is in the past, try and set it to a sensible time
