@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 set -e
 set -u
@@ -38,8 +38,8 @@ while getopts "fd" optname
 
 
 # Setup environment
-MAC=$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
-KEYNAME="$HOSTNAME.$MAC.2012.vpn.grasehotspot.net"
+MAC=$(/sbin/ifconfig | egrep -v '^(docker|tun|lo)' | sort | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
+KEYNAME="$HOSTNAME.$MAC.2016.vpn.grasehotspot.net"
 KEYSTORE="/etc/grase/pki/keys/"
 
 mkdir -p $KEYSTORE
@@ -89,7 +89,7 @@ then
     ln -fs "$KEYSTORE$KEYNAME.key" "$KEYSTORE/grase_client.key"
     ln -fs "$KEYSTORE$KEYNAME.crt" "$KEYSTORE/grase_client.crt"
     DEBUG echo "Keys loaded, restarting VPN"
-    echo "VPN keys are valid, restarting VPN"    
+    echo "VPN keys are valid, restarting VPN"
     if which invoke-rc.d >/dev/null 2>&1; then
 	    invoke-rc.d openvpn restart grase || true
     else

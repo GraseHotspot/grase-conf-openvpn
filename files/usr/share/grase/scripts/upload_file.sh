@@ -31,15 +31,14 @@ Accept: text/plain
 Accept-Language: en-us,en;q=0.5
 Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
 Connection: Close
-Referer: http://hotspot.purewhite.id.au/ncuploader
+Referer: http://grasehotspot.org/ncuploader
 Content-Type: multipart/form-data; boundary=---------------------------7552901051828930864785583031
 Content-Length: $CONTENT_LENGTH
 
 $CONTENT
- 
+
 EOC
 )
 
 #echo "$CONTENT"
 echo "$POSTDATA" | /bin/nc -q 5 -C $UPHOST 80|egrep "^  "
-
