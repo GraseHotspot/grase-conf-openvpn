@@ -38,8 +38,8 @@ while getopts "fd" optname
 
 
 # Setup environment
-MAC=$(/sbin/ifconfig | egrep -v '^(docker|tun|lo)' | sort | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
-KEYNAME="$HOSTNAME.$MAC.2016.vpn.grasehotspot.net"
+MAC=$(/sbin/ip -0 -o link|grep link/ether|grep -v virbr|grep -v 'br-'|grep -v docker|grep -o -E 'ether ([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'| awk '{print $2}' |tr -d ":"| sed 's/0*//'| head -n1)
+KEYNAME="$HOSTNAME.$MAC.2018.vpn.grasehotspot.net"
 KEYSTORE="/etc/grase/pki/keys/"
 
 mkdir -p $KEYSTORE
