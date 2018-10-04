@@ -11,15 +11,15 @@ if [ "$action" != configure ]
 fi
 
 get_signed_cert(){
-	/usr/share/grase/scripts/get_signed_cert -f
+  /usr/share/grase/scripts/get_signed_cert -f
 }
 
 link_config_file(){
-	ln -bs /usr/share/grase/conf/openvpn/grase.conf /etc/openvpn/grase.conf
+  ln -bs /usr/share/grase/conf/openvpn/grase.conf /etc/openvpn/grase.conf
 }
 
 make_directories(){
-	mkdir -p /etc/grase/pki/keys
+  mkdir -p /etc/grase/pki/keys
 }
 
 make_directories

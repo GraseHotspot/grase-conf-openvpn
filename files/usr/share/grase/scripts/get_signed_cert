@@ -39,8 +39,11 @@ while getopts "fd" optname
 
 # Setup environment
 MAC=$(/sbin/ifconfig | egrep -v '^(docker|tun|lo)' | sort | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'|tr -d ":"| sed 's/0*//'| head -n1)
-KEYNAME="$HOSTNAME.$MAC.2016.vpn.grasehotspot.net"
+KEYNAME="$HOSTNAME.$MAC.v18.grase.net"
 KEYSTORE="/etc/grase/pki/keys/"
+
+# Ensure KEYNAME is 64 chars or less
+KEYNAME=${KEYNAME:${#KEYNAME}<64?0:-64}
 
 mkdir -p $KEYSTORE
 
@@ -75,8 +78,7 @@ fi
 DEBUG echo "No valid key and crt so uploading (or forced)"
 
 ## allow selecting curl/wget?
-#curl --data-urlencode "csr@$KEYSTORE$KEYNAME.csr" http://grasehotspot.net/getcrt.php
-curl -s --data-urlencode "csr@$KEYSTORE$KEYNAME.csr"  http://grasehotspot.net/getcrt.php > "$KEYSTORE$KEYNAME.crt"
+curl -s --data-urlencode "csr@$KEYSTORE$KEYNAME.csr"  https://key18.grase.net/getCertificate > "$KEYSTORE$KEYNAME.crt"
 
 # Check that fingerprint matches, overwrite crt
 keyfinger=$(openssl rsa -noout -modulus -in "$KEYSTORE$KEYNAME.key" |openssl md5)
@@ -90,7 +92,9 @@ then
     ln -fs "$KEYSTORE$KEYNAME.crt" "$KEYSTORE/grase_client.crt"
     DEBUG echo "Keys loaded, restarting VPN"
     echo "VPN keys are valid, restarting VPN"
-    if which invoke-rc.d >/dev/null 2>&1; then
+    if [ -d /run/systemd/system ]; then
+      systemctl restart openvpn@grase || true
+    elif which invoke-rc.d >/dev/null 2>&1; then
 	    invoke-rc.d openvpn restart grase || true
     else
 	    /etc/init.d/openvpn restart grase || true

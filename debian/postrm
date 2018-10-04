@@ -9,17 +9,15 @@ set -u
 
 if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
 
-	if which invoke-rc.d >/dev/null 2>&1; then
-		invoke-rc.d openvpn stop grase || true
-	else
-		/etc/init.d/openvpn stop grase || true
-	fi
+  if [ -d /run/systemd/system ]; then
+    deb-systemd-invoke stop openvpn@grase || true
+  elif which invoke-rc.d >/dev/null 2>&1; then
+    invoke-rc.d openvpn stop grase || true
+  else
+    /etc/init.d/openvpn stop grase || true
+  fi
 
-	rm -rf /etc/openvpn/grase.conf
-
-        #if [ "$1" = "purge" ]; then
-        #        rm -rf /usr/share/grase/
-        #fi
+  rm -rf /etc/openvpn/grase.conf
 fi
 
 #DEBHELPER#

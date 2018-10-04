@@ -1,5 +1,5 @@
 #!/bin/bash
 
 if [ -x "/usr/share/grase/scripts/get_signed_cert" ]; then
-	/usr/share/grase/scripts/get_signed_cert
+  /usr/share/grase/scripts/get_signed_cert
 fi

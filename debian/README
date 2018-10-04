@@ -4,7 +4,5 @@ The Debian Package grase-conf-openvpn
 This package installs a config file for OpenVPN to allow it to connect to the
 "master" server for remote assistance. Initially it generates a new private key
 and certificate signing request and uploads the csr to the master server for
-signing. Daily it will check for a signed certificate and download that if it 
+signing. Daily it will check for a signed certificate and download that if it
 exists. Failing that, it will reupload the csr to the master server.
-
- -- unknown <tim@hotspot.purewhite.id.au>  Sun, 25 Apr 2010 05:38:26 +0800
