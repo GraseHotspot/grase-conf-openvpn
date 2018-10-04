@@ -1,10 +1,10 @@
-grase-conf-openvpn (1.7.2) UNRELEASED; urgency=medium
+grase-conf-openvpn (1.7.2) purewhite; urgency=medium
 
   * Point to new VPN key server
   * Limit CN to 64 chars as supported by OpenVPN
   * Update for SystemD support
 
- -- Tim White <tim@grasehotspot.org>  Thu, 04 Oct 2018 20:23:17 +1000
+ -- Tim White <tim@grasehotspot.org>  Fri, 05 Oct 2018 09:46:24 +1000
 
 grase-conf-openvpn (1.7.1) purewhite; urgency=low
 
