@@ -29,9 +29,9 @@ xenial-all:
   <<: *build_definition
   image: grase/build-images:xenial
 
-bionic-all:
-  <<: *build_definition
-  image: grase/build-images:bionic
+#bionic-all:
+#  <<: *build_definition
+#  image: grase/build-images:bionic
 
 test:jessie-all:
   <<: *test_definition
@@ -51,8 +51,8 @@ test:xenial-all:
   dependencies:
     - xenial-all
 
-test:bionic-all:
-  <<: *test_definition
-  image: ubuntu:bionic
-  dependencies:
-    - bionic-all
+#test:bionic-all:
+#  <<: *test_definition
+#  image: ubuntu:bionic
+#  dependencies:
+#    - bionic-all
