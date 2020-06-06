@@ -1,6 +1,0 @@
-#!/bin/bash
-
-if [ -x "/usr/share/grase/scripts/get_signed_cert" ]; then
-    # As this is the daily run, we force a recheck for activity purposes (ensures we always have a valid key)
-    /usr/share/grase/scripts/get_signed_cert -f
-fi
